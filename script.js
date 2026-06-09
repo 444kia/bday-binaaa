@@ -188,3 +188,14 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 });
+
+// === 2. ANIMASI INTERAKTIF AMPLOP SURAT ===
+  const closeLetterBtn = document.getElementById("close-letter-btn");
+
+
+
+  // Klik tombol silang untuk menutup surat
+  closeLetterBtn.addEventListener("click", (e) => {
+    e.stopPropagation(); // Mencegah konflik klik dengan elemen amplop di bawahnya
+    envelope.classList.remove("open");
+  });

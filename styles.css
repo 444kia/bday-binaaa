@@ -298,28 +298,6 @@ body {
 
 }
 
-@media (max-width: 600px) {
-
-  .envelope-wrapper {
-    height: 550px;
-  }
-
-  .envelope.open .letter {
-
-    transform: translateY(-310px);
-
-    width: 90vw;
-    max-width: 90vw;
-
-    height: 500px;
-
-    left: 50%;
-    margin-left: -45vw;
-
-    padding: 1.5rem;
-  }
-
-}
 
 .timer {
   display: flex;
@@ -698,25 +676,7 @@ body {
   transition: transform 0.4s ease 0s, border-top-color 0.4s;
 }
 
-.envelope.open .letter {
-  transform: translateY(-340px);
 
-  width: 650px;
-  max-width: 90vw;
-
-  height: 700px;
-
-  left: -165px;
-
-  overflow-y: auto;
-
-  z-index: 25;
-
-  border-radius: 24px;
-
-  box-shadow:
-    0 30px 70px rgba(0, 0, 0, .18);
-}
 
 /* Hide scrollbar for aesthetics but keep functionality */
 .letter::-webkit-scrollbar {
@@ -1026,4 +986,205 @@ footer p:first-child {
     margin-bottom: 2rem;
   }
 
+}
+
+@media (max-width: 600px) {
+
+  /* Judul section */
+  .letter-section .section-title {
+    text-align: left;
+  }
+
+  .letter-section .section-title::after {
+    margin: 1rem 0 0;
+  }
+
+  .letter-section .section-desc {
+    text-align: left;
+    margin-left: 0;
+  }
+
+  /* Isi surat */
+  .letter-body {
+    text-align: left !important;
+  }
+
+  .letter-body p {
+    text-align: left !important;
+    margin-bottom: 1.4rem;
+  }
+
+  .letter-header {
+    text-align: left;
+    font-size: 1.8rem;
+  }
+
+  .letter-footer {
+    text-align: left;
+  }
+
+}
+
+/* ========================================================
+   PERBAIKAN SYSTEM AMPLOP DAN SURAT (RESPONSIVE DESKTOP & MOBILE)
+   ======================================================== */
+
+.envelope-wrapper {
+  height: 420px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem auto;
+  perspective: 1000px;
+  position: relative; /* Menjaga agar pembungkus menjadi patokan posisi */
+}
+
+.envelope {
+  position: relative;
+  width: 320px;
+  height: 200px;
+  background-color: var(--secondary-brown);
+  box-shadow: var(--shadow-lg);
+  cursor: pointer;
+  border-radius: 0 0 10px 10px;
+  transition: transform 0.4s ease;
+}
+
+.envelope:hover {
+  transform: translateY(-5px);
+}
+
+/* Surat saat posisi tertutup di dalam amplop */
+.letter {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  width: 290px;
+  height: 180px;
+  background: linear-gradient(rgba(255, 255, 255, .96), rgba(245, 245, 245, .96));
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid rgba(0, 0, 0, .08);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, .12);
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1); /* Animasi smooth saat terbuka */
+  z-index: 10;
+}
+
+/* --- KONDISI SAAT AMPLOP TERBUKA (.open) --- */
+
+.envelope.open .flap {
+  transform: rotateX(180deg);
+  border-top-color: var(--primary-brown);
+  z-index: 5;
+  transition: transform 0.4s ease 0s, border-top-color 0.4s;
+}
+
+.envelope.open .letter {
+  /* Menggunakan kalkulasi persentase dan translate agar PASTI di tengah layar */
+  left: 50%;
+  transform: translate(-50%, -340px);
+  
+  /* Ukuran surat saat terbuka di Desktop */
+  width: 600px; 
+  max-width: 92vw; /* Mencegah meluber di HP */
+  height: 600px;
+  
+  overflow-y: auto;
+  z-index: 40; /* Naikkan z-index agar berada di paling depan */
+  border-radius: 24px;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, .25);
+  padding: 2.5rem 2rem;
+}
+
+.envelope.open .letter-inner {
+  opacity: 1;
+  transition: opacity 0.5s ease 0.3s;
+}
+
+/* --- MEDIA QUERY KHUSUS LAYAR HP (MOBILE) --- */
+@media (max-width: 600px) {
+  .envelope-wrapper {
+    height: 500px; /* Beri ruang vertikal agar tidak menabrak section bawah */
+  }
+
+  /* Penyesuaian surat terbuka khusus di HP */
+  .envelope.open .letter {
+    left: 50%;
+    transform: translate(-50%, -310px); /* Dorong ke atas sedikit saja di HP */
+    width: 90vw;
+    max-width: 90vw;
+    height: 520px; /* Tinggi disesuaikan dengan layar HP */
+    padding: 1.8rem 1.2rem;
+  }
+
+  .letter-body {
+    font-size: 0.95rem !important;
+    line-height: 1.8 !important;
+    text-align: left !important;
+  }
+
+  .letter-header {
+    font-size: 1.8rem !important;
+    text-align: center !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  .letter-footer {
+    text-align: right !important;
+    font-size: 1.8rem !important;
+  }
+}
+
+.close-letter-btn {
+  position: -webkit-sticky; /* Dukungan untuk Safari */
+  position: sticky;
+  top: 0px;       /* Nempel di paling atas area surat saat di-scroll */
+  float: right;    /* Memaksa tombol bergeser ke kanan */
+  margin-top: -10px;  /* Menyesuaikan posisi agar pas di pojok */
+  margin-right: -10px; /* Menyesuaikan posisi agar pas di pojok */
+  
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.85); /* Background putih transparan */
+  backdrop-filter: blur(4px);            /* Efek blur aesthetic */
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 50%;
+  font-size: 1.5rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99; /* Pastikan selalu di atas teks surat saat di-scroll */
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.close-letter-btn:hover {
+  background: var(--white);
+  color: var(--dark-brown);
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Tampilkan tombol silang HANYA ketika amplop terbuka */
+.envelope.open .close-letter-btn {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.4s ease 0.5s, visibility 0.4s ease 0.5s;
+}
+
+/* Tweak di HP agar pas di pojok surat */
+@media (max-width: 600px) {
+  .close-letter-btn {
+    top: 0px;
+    margin-top: -5px;
+    margin-right: -5px;
+    width: 32px;
+    height: 32px;
+    font-size: 1.3rem;
+  }
 }
