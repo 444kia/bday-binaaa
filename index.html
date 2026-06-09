@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday, Kak Khaze! 🎂</title>
+  <!-- Google Fonts for premium typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap"
+    rel="stylesheet"> <!-- Stylesheet link -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- Audio Element -->
+  <audio id="bg-music" loop>
+    <source src="assets/Pamungkas - To The Bone.mp3" type="audio/mp3">
+    Browser Anda tidak mendukung elemen audio.
+  </audio>
+
+  <!-- Canvas for Cupcake Rain -->
+  <canvas id="cupcake-canvas"></canvas>
+
+  <!-- Welcome / Invitation Overlay -->
+  <div id="welcome-overlay" class="overlay">
+    <div class="overlay-card">
+      <div class="envelope-icon">✉️</div>
+      <h1>Hai Kamu!</h1>
+      <p>Ada sebuah surat ucapan spesial yang menantimu...</p>
+      <button id="open-btn" class="btn">Buka Surat 💌</button>
+    </div>
+  </div>
+
+  <!-- Main Website Content (Hidden initially for a grand reveal) -->
+  <main id="main-content" class="fade-in-hidden">
+
+    <!-- Floating Music Controller -->
+    <div class="music-controller">
+      <button id="music-toggle" aria-label="Toggle Music">
+        <span class="music-icon active">🎵</span>
+      </button>
+    </div>
+
+    <!-- Header Section -->
+    <header class="hero">
+      <div class="hero-badge">10 Juni 2026</div>
+      <h1 class="hero-title">Happy Birthday, <span class="highlight">Kak Khaze!</span>🎂</h1>
+      <p class="hero-subtitle">Untuk teman yang paling luar biasa, Papa Cimi ✨</p>
+
+      <!-- Interactive Countdown Timer -->
+      <div id="countdown" class="countdown-container">
+        <div class="countdown-title">Menuju hari spesialmu:</div>
+        <div class="timer">
+          <div class="time-block"><span id="days">00</span><span class="label">Hari</span></div>
+          <div class="time-block"><span id="hours">00</span><span class="label">Jam</span></div>
+          <div class="time-block"><span id="minutes">00</span><span class="label">Menit</span></div>
+          <div class="time-block"><span id="seconds">00</span><span class="label">Detik</span></div>
+        </div>
+      </div>
+      <div id="special-day-msg" class="special-day-msg hidden">
+        ✨ HARI INI HARI SPESIALMU! SELAMAT ULANG TAHUN DIKA! 🧁✨
+      </div>
+    </header>
+
+    <!-- Opening Message -->
+    <section class="opening-message">
+      <div class="container">
+        <div class="opening-card reveal-on-scroll">
+
+          <div class="opening-tag">Untuk Kak Khaze 🤍</div>
+
+          <h2>Sepucuk Surat Kecil Untukmu</h2>
+
+          <div class="opening-text">
+
+            <p>
+              selamat hari lahir kak khaze, pertama - tama aku mau berterimakasih
+              karena kakak udah lahir didunia & tumbuh menjadi sosok yang baik dan
+              penuh kasih sayang, buat semua yang udah kakak lewati & usahakan
+              semasa usia kakak itu hebat banget karena bisa dititik ini, karena
+              bisa terus berkembang sampai saat ini. aku mungkin ngga begitu tau
+              perjalanan kakak selama ini gimana tapi aku yakin kakak pasti selalu
+              lakuin yang terbaik & yang terhebat, aku percaya banget!!
+            </p>
+
+            <p>
+              kak, dihari kamu lahir ini aku mau jadi seseorang yang turut bahagia
+              atas pencapaian & perjalanan kamu sampai sekarang. aku senang bisa
+              kenal kakak dan ngobrol banyak hal sama kakak, aku senang ternyata
+              bulan juni bisa jadi begitu spesialnya karena kehadiran kakak.
+            </p>
+
+            <p>
+              harapan & doa aku untuk kakak diusia ini, semoga kakak selalu
+              dikelilingi hal baik yaa? semoga kakak dimudahkan atas segala hal,
+              semoga keinginan kakak selalu tercapai, semoga kakak disayangi oleh
+              orang yang kakak sayangi juga, semoga kakak bisa lakuin hal apapun
+              yang bikin kakak bahagia, semoga hari - hari kakak dipenuhi rasa
+              cukup, rasa bahagia, rasa bangga, rasa dihargai, rasa didengar, dan
+              segala rasa - rasa indah lainnya, bahagia selalu kak aku juga turut
+              senang dengan kebahagiaan kakak apapun itu.
+            </p>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Polaroid Photo Gallery & Birthday Card 1 -->
+    <section class="gallery-section">
+      <div class="container">
+        <h2 class="section-title">Kenangan & Doa Terindah</h2>
+        <div class="photo-grid">
+
+          <!-- Polaroid 1 - The Big Card containing Text 1 -->
+          <!-- <div class="polaroid-card large-card reveal-on-scroll">
+            <div class="polaroid-img-wrapper">
+              <img src="assets/photo1.jpg" alt="Papa Cimi" class="polaroid-img">
+              <span class="tag-badge">Papa Cimi 🐱</span>
+            </div>
+            <div class="polaroid-content">
+              <h3>HAPPY BIRTHDAYY YAAA PAPA CIMII 🎂</h3>
+              <p class="wishes-text">
+                Nggak kerasa umur nambah lagi aja, wkwk. Semoga di umur yang sekarang, hidup kamu makin banyak hal
+                baiknya. Semoga apa yang lagi kamu kejar bisa berjalan sesuai harapan, yang lagi bikin capek pelan-pelan
+                menemukan jalan keluarnya, dan yang masih jadi rencana bisa segera jadi kenyataan. Terima kasih sudah
+                jadi pribadi yang selalu keren dengan caramu sendiri. Tetap jadi orang yang rendah hati dan membawa
+                energi positif untuk orang-orang di sekitarmu. Semoga semakin dewasa, semakin bijaksana dalam mengambil
+                keputusan, dan semakin banyak hal membanggakan yang bisa kamu raih. <br><strong>HAPPY BIRTHDAY DIKAA
+                  🧁</strong>
+              </p>
+            </div>
+          </div> -->
+
+          <!-- Polaroid 2 -->
+          <div class="polaroid-card reveal-on-scroll">
+            <div class="polaroid-img-wrapper">
+              <img src="assets/first-chat.jpg" alt="Cozy Cafe Moments" class="polaroid-img">
+              <span class="tag-badge">First Chat☕</span>
+            </div>
+            <div class="polaroid-content">
+              <p class="polaroid-caption">our first chat: aku beraniin say hi ke kakak di anon kalau kata olivia sih ini
+                feminine intuition hehehe</p>
+            </div>
+          </div>
+
+          <!-- Polaroid 3 -->
+          <div class="polaroid-card reveal-on-scroll">
+            <div class="polaroid-img-wrapper">
+              <img src="assets/kegiatan-fav.jpg" alt="Path of Hopes" class="polaroid-img">
+              <span class="tag-badge">Kegiatan Fav 🌅</span>
+            </div>
+            <div class="polaroid-content">
+              <p class="polaroid-caption">kegiatan yang paling aku suka banreng kak kazhe : mabar plato (soalnya kakak
+                jadi ekspresif & kita bisa random talk tipis")</p>
+            </div>
+          </div>
+
+          <!-- Polaroid 4 -->
+          <div class="polaroid-card reveal-on-scroll">
+            <div class="polaroid-img-wrapper">
+              <img src="assets/lagu-memories.jpg" alt="Sweet Cupcake" class="polaroid-img">
+              <span class="tag-badge">Song 🧁</span>
+            </div>
+            <div class="polaroid-content">
+              <p class="polaroid-caption">lagu yang bikin inget kak khaze</p>
+            </div>
+          </div>
+
+          <!-- Polaroid 5 -->
+          <div class="polaroid-card reveal-on-scroll">
+            <div class="polaroid-img-wrapper">
+              <img src="assets/moment-fav.jpg" alt="Sweet Cupcake" class="polaroid-img">
+              <span class="tag-badge">Moment fav 🧁</span>
+            </div>
+            <div class="polaroid-content">
+              <p class="polaroid-caption">moment" fav: aku suka pas kak khaze narsis aslinya wkwkwk lucu, terus suka
+                respon kakak kalau aku katain wibu, kakak jarang respon jokes & gombalan ak sih tapi gatau kenapa tetap
+                lucu aja deh meskipun diam 👍👍</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Letter Section (Envelope) containing Text 2 -->
+    <section class="letter-section">
+      <div class="container">
+        <h2 class="section-title">Satu Hal Yang Ingin Aku Sampaikan 🤍</h2>
+        <p class="section-desc">
+          Surat ini mungkin berisi hal-hal yang belum sempat aku ucapkan secara langsung.
+        </p>
+        <p class="section-desc">Klik amplop di bawah ini untuk membaca suratnya...</p>
+
+        <div class="envelope-wrapper">
+          <div class="envelope" id="envelope">
+            <div class="flap"></div>
+            <div class="pocket"></div>
+            <div class="letter" id="letter">
+              <div class="letter-inner">
+                <div class="letter-header">Untuk Kak Khaze</div>
+                <div class="letter-body">
+
+                  <p>
+                    Halo, surat ini spesial karena isinya adalah segala hal yang pengen banget aku utarain ke kakak,
+                    hehe.
+                  </p>
+
+                  <p>
+                    Aku tau kak, mungkin sekarang memang waktunya belum tepat kalau aku berusaha masuk ke kehidupan
+                    kakak.
+                    Aku paham kalau mungkin kakak masih ingin menikmati momen dan kenangan bersama mantan kakak, dan
+                    belum
+                    ingin terburu-buru menghapus semua itu.
+                  </p>
+
+                  <p>
+                    Tapi kak, aku di sini sama sekali nggak menuntut kakak buat menghapus perasaan atau kenangan
+                    tersebut.
+                    Kakak bebas merasakan apapun yang memang masih ingin kakak rasakan, bebas menyayangi mantan kakak
+                    sebesar apa pun itu. Aku nggak akan pernah jadi penghalang untuk hal tersebut.
+                  </p>
+
+                  <p>
+                    Aku cuma akan berusaha sebisa dan sejauh yang kakak izinkan. Aku berusaha bukan dengan harapan kakak
+                    akan segera melupakan mantan kakak, tapi karena aku ingin kakak tahu kalau aku ada di sini.
+                  </p>
+
+                  <p>
+                    Aku hanya sedang berusaha agar keberadaanku disadari oleh kakak, tanpa menuntut apa pun, tanpa
+                    memaksa
+                    perasaan kakak, dan tanpa mengharapkan balasan tertentu.
+                  </p>
+
+                  <p>
+                    Apapun respon kakak terhadap segala usahaku, aku akan menerimanya. Kalau suatu saat kakak merasa
+                    caraku hadir di sisi kakak terlalu berlebihan, bilang saja. Aku akan menyesuaikan diri dengan cara
+                    yang paling nyaman untuk kakak.
+                  </p>
+
+                  <p>
+                    Kalau menghubungi kakak setiap hari terasa memberatkan, aku akan belajar untuk tetap ada di sisi
+                    kakak
+                    dengan cara yang lain. Dengan cara yang lebih tenang. Dengan cara yang tidak menggebu-gebu.
+                  </p>
+
+                  <p>
+                    Jadi untuk sekarang, cukup jalani kehidupan kakak seperti biasanya.
+                  </p>
+
+                  <p>
+                    Dan kalau suatu hari kakak merasa membutuhkan seseorang untuk ada di sisi kakak, atau ketika kakak
+                    sudah selesai dengan segala hal yang mungkin sedang kakak coba selesaikan, kakak boleh datang ke
+                    aku.
+                  </p>
+
+                  <p>
+                    Aku akan tetap ada di sini.
+                  </p>
+
+                  <p>
+                    Dan aku akan menunggu, selama aku masih mampu.
+                  </p>
+
+                  <p class="letter-closing">
+  Terima kasih sudah hadir di hidup banyak orang dengan versi terbaik dirimu.
+  Dan terima kasih karena tanpa sadar, kamu juga berhasil membuat bulan Juni
+  terasa lebih spesial untukku.
+</p>
+
+                </div>
+                <div class="letter-footer">Dari Teman Baikmu</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>Dibuat dengan penuh rasa syukur & kopi hangat ☕</p>
+      <p class="copyright">&copy; 2026 Ulang Tahun Dika. All Rights Reserved.</p>
+    </footer>
+
+  </main>
+
+  <!-- Script link -->
+  <script src="script.js"></script>
+</body>
+
+</html>
