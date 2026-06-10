@@ -51,10 +51,11 @@ body {
 }
 
 /* Scroll Animations */
+/* PAKSA SEMUA ELEMEN SCROLL UNTUK LANGSUNG MUNCUL TANPA MENUNGGU JS OBSERVER */
 .reveal-on-scroll {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  opacity: 1 !important;
+  transform: none !important;
+  transition: all 0.8s ease-in-out;
 }
 
 .reveal-on-scroll.active {
@@ -155,7 +156,7 @@ body {
 }
 
 .fade-in-visible {
-  opacity: 1;
+  opacity: 1 !important;
 }
 
 .container {
@@ -814,21 +815,20 @@ footer p:first-child {
   0% {
     transform: scale(1);
   }
-
   14% {
     transform: scale(1.05);
   }
-
   28% {
     transform: scale(1);
   }
-
   42% {
     transform: scale(1.05);
   }
-
   70% {
     transform: scale(1);
+  }
+  100% {
+    transform: scale(1); /* PENTING: Menjaga elemen tetap utuh dan tidak hilang */
   }
 }
 

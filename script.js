@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const musicIcon = musicToggle.querySelector('.music-icon');
   
   const envelope = document.getElementById('envelope');
+  const closeLetterBtn = document.getElementById("close-letter-btn");
   
   const daysVal = document.getElementById('days');
   const hoursVal = document.getElementById('hours');
@@ -18,14 +19,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const specialDayMsg = document.getElementById('special-day-msg');
 
   // --- 1. Welcome Overlay & Music Auto-play ---
+// --- 1. Welcome Overlay & Music Auto-play ---
   openBtn.addEventListener('click', () => {
     // Fade out overlay
     welcomeOverlay.classList.add('hide');
     
-    // Reveal main content with a delay for transition
+    // Hapus class hidden-nya dan langsung paksa opacity jadi 1
+    mainContent.classList.remove('fade-in-hidden');
     mainContent.classList.add('fade-in-visible');
+    mainContent.style.opacity = '1'; 
     
-    // Play background music (safely after user interaction)
+    // Play background music
     playMusic();
     
     // Start canvas animation
@@ -57,13 +61,24 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // --- 3. Interactive Envelope / Letter ---
+  // Klik amplop untuk membuka
   envelope.addEventListener('click', (e) => {
-    // Prevent closing if clicking inside the text to read/scroll
+    // Jika mengklik isi surat, jangan ditutup otomatis
     if (e.target.closest('.letter-body')) {
       return;
     }
-    envelope.classList.toggle('open');
+    if (!envelope.classList.contains("open")) {
+      envelope.classList.add("open");
+    }
   });
+
+  // Klik tombol silang untuk menutup surat (AMANKAN DI DALAM DOM CONTENT)
+  if (closeLetterBtn) {
+    closeLetterBtn.addEventListener("click", (e) => {
+      e.stopPropagation(); // Mencegah konflik klik dengan elemen amplop di bawahnya
+      envelope.classList.remove("open");
+    });
+  }
 
   // --- 4. Countdown Timer to June 10, 2026 ---
   const targetDate = new Date('2026-06-10T00:00:00').getTime();
@@ -73,22 +88,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const difference = targetDate - now;
 
     if (difference <= 0) {
-      // It's the special day or past!
-      countdownContainer.classList.add('hidden');
-      specialDayMsg.classList.remove('hidden');
+      // Hari H spesial!
+      if (countdownContainer) countdownContainer.classList.add('hidden');
+      if (specialDayMsg) specialDayMsg.classList.remove('hidden');
       clearInterval(timerInterval);
-      return;
+      // 'return;' TELAH DIHAPUS agar fungsi canvas & scroll di bawah tidak ikut mati!
+    } else {
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+      if (daysVal) daysVal.textContent = days.toString().padStart(2, '0');
+      if (hoursVal) hoursVal.textContent = hours.toString().padStart(2, '0');
+      if (minutesVal) minutesVal.textContent = minutes.toString().padStart(2, '0');
+      if (secondsVal) secondsVal.textContent = seconds.toString().padStart(2, '0');
     }
-
-    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-    daysVal.textContent = days.toString().padStart(2, '0');
-    hoursVal.textContent = hours.toString().padStart(2, '0');
-    minutesVal.textContent = minutes.toString().padStart(2, '0');
-    secondsVal.textContent = seconds.toString().padStart(2, '0');
   }
 
   updateCountdown(); // Run immediately
@@ -117,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
     reset() {
       this.x = Math.random() * canvas.width;
       this.y = -50;
-      this.size = Math.random() * 20 + 15; // Font size between 15px and 35px
+      this.size = Math.random() * 20 + 15; 
       this.speedY = Math.random() * 1.5 + 1; // Fall speed
       this.speedX = Math.random() * 1 - 0.5; // Sway side to side
       this.emoji = cupcakeEmojis[Math.floor(Math.random() * cupcakeEmojis.length)];
@@ -131,7 +146,6 @@ document.addEventListener('DOMContentLoaded', () => {
       this.x += this.speedX;
       this.rotation += this.rotationSpeed;
 
-      // Reset when falling off screen
       if (this.y > canvas.height + 50 || this.x < -50 || this.x > canvas.width + 50) {
         this.reset();
       }
@@ -152,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function initCupcakeRain() {
     cupcakes = [];
-    const count = Math.min(50, Math.floor(window.innerWidth / 20)); // Responsive particle count
+    const count = Math.min(50, Math.floor(window.innerWidth / 20)); 
     for (let i = 0; i < count; i++) {
       cupcakes.push(new Cupcake());
     }
@@ -175,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('active');
-        observer.unobserve(entry.target); // Reveal once only
+        observer.unobserve(entry.target); 
       }
     });
   }, {
@@ -188,14 +202,3 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 });
-
-// === 2. ANIMASI INTERAKTIF AMPLOP SURAT ===
-  const closeLetterBtn = document.getElementById("close-letter-btn");
-
-
-
-  // Klik tombol silang untuk menutup surat
-  closeLetterBtn.addEventListener("click", (e) => {
-    e.stopPropagation(); // Mencegah konflik klik dengan elemen amplop di bawahnya
-    envelope.classList.remove("open");
-  });
