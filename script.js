@@ -1,16 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   // --- Element Selectors ---
+  const introScreen = document.getElementById('intro-screen');
   const welcomeOverlay = document.getElementById('welcome-overlay');
   const openBtn = document.getElementById('open-btn');
   const mainContent = document.getElementById('main-content');
   const bgMusic = document.getElementById('bg-music');
   const musicToggle = document.getElementById('music-toggle');
   const musicIcon = musicToggle.querySelector('.music-icon');
-  
+
   const envelope = document.getElementById('envelope');
   const closeLetterBtn = document.getElementById("close-letter-btn");
-  
+
   const daysVal = document.getElementById('days');
   const hoursVal = document.getElementById('hours');
   const minutesVal = document.getElementById('minutes');
@@ -18,20 +19,26 @@ document.addEventListener('DOMContentLoaded', () => {
   const countdownContainer = document.getElementById('countdown');
   const specialDayMsg = document.getElementById('special-day-msg');
 
+  introScreen.addEventListener('click', () => {
+
+    introScreen.classList.add('hide');
+
+  });
+
   // --- 1. Welcome Overlay & Music Auto-play ---
-// --- 1. Welcome Overlay & Music Auto-play ---
+  // --- 1. Welcome Overlay & Music Auto-play ---
   openBtn.addEventListener('click', () => {
     // Fade out overlay
     welcomeOverlay.classList.add('hide');
-    
+
     // Hapus class hidden-nya dan langsung paksa opacity jadi 1
     mainContent.classList.remove('fade-in-hidden');
     mainContent.classList.add('fade-in-visible');
-    mainContent.style.opacity = '1'; 
-    
+    mainContent.style.opacity = '1';
+
     // Play background music
     playMusic();
-    
+
     // Start canvas animation
     initCupcakeRain();
   });
@@ -81,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --- 4. Countdown Timer to June 10, 2026 ---
-  const targetDate = new Date('2026-06-10T00:00:00').getTime();
+  const targetDate = new Date('2026-06-26T00:00:00').getTime();
 
   function updateCountdown() {
     const now = new Date().getTime();
@@ -108,7 +115,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   updateCountdown(); // Run immediately
   const timerInterval = setInterval(updateCountdown, 1000);
-
   // --- 5. Cupcake Rain Canvas Animation ---
   const canvas = document.getElementById('cupcake-canvas');
   const ctx = canvas.getContext('2d');
@@ -132,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
     reset() {
       this.x = Math.random() * canvas.width;
       this.y = -50;
-      this.size = Math.random() * 20 + 15; 
+      this.size = Math.random() * 20 + 15;
       this.speedY = Math.random() * 1.5 + 1; // Fall speed
       this.speedX = Math.random() * 1 - 0.5; // Sway side to side
       this.emoji = cupcakeEmojis[Math.floor(Math.random() * cupcakeEmojis.length)];
@@ -166,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function initCupcakeRain() {
     cupcakes = [];
-    const count = Math.min(50, Math.floor(window.innerWidth / 20)); 
+    const count = Math.min(50, Math.floor(window.innerWidth / 20));
     for (let i = 0; i < count; i++) {
       cupcakes.push(new Cupcake());
     }
@@ -189,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('active');
-        observer.unobserve(entry.target); 
+        observer.unobserve(entry.target);
       }
     });
   }, {

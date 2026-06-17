@@ -4,28 +4,73 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy Birthday, Kak Khaze! 🎂</title>
-  <!-- Google Fonts for premium typography -->
+  <title>Happy Birthday, Mas Ran! 🎂</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap"
-    rel="stylesheet"> <!-- Stylesheet link -->
-  <link rel="stylesheet" href="styles.css">
+    rel="stylesheet"> <link rel="stylesheet" href="styles.css">
+  
+  <style>
+    .intro-screen {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+      width: 100%;
+    }
+    .intro-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+    .intro-photo-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 20px auto;
+      width: 100%;
+    }
+    .intro-text {
+      text-align: center;
+      width: 100%;
+      margin-top: 15px;
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- Audio Element -->
+  <div id="intro-screen" class="intro-screen">
+    <div class="intro-content">
+
+      <h1 class="intro-title">
+        Happy Birthday ✨
+      </h1>
+
+      <div class="intro-photo-wrapper">
+        <img src="assets/opening.png"
+             alt="Birthday Photo"
+             class="intro-photo">
+      </div>
+
+      <p class="intro-text">
+        Click To See A Surprise ✨
+      </p>
+
+    </div>
+  </div>
+
   <audio id="bg-music" loop>
-    <source src="assets/Pamungkas - To The Bone.mp3" type="audio/mp3">
+    <source src="assets/riskitall.mp3" type="audio/mp3">
     Browser Anda tidak mendukung elemen audio.
   </audio>
 
-  <!-- Canvas for Cupcake Rain -->
   <canvas id="cupcake-canvas"></canvas>
 
-  <!-- Welcome / Invitation Overlay -->
   <div id="welcome-overlay" class="overlay">
     <div class="overlay-card">
       <div class="envelope-icon">✉️</div>
@@ -35,23 +80,19 @@
     </div>
   </div>
 
-  <!-- Main Website Content (Hidden initially for a grand reveal) -->
   <main id="main-content" class="fade-in-hidden">
 
-    <!-- Floating Music Controller -->
     <div class="music-controller">
       <button id="music-toggle" aria-label="Toggle Music">
         <span class="music-icon active">🎵</span>
       </button>
     </div>
 
-    <!-- Header Section -->
     <header class="hero">
-      <div class="hero-badge">10 Juni 2026</div>
-      <h1 class="hero-title">Happy Birthday, <span class="highlight">Kak Khaze!</span>🎂</h1>
-      <p class="hero-subtitle">Untuk orang yang paling spesial, Kak Kazhe ✨</p>
+      <div class="hero-badge">26 Juni 2026</div>
+      <h1 class="hero-title">Happy Birthday, <span class="highlight">Mas Ran!</span>🎂</h1>
+      <p class="hero-subtitle">Untuk orang yang paling spesial, Mas Ran ✨</p>
 
-      <!-- Interactive Countdown Timer -->
       <div id="countdown" class="countdown-container">
         <div class="countdown-title">Menuju hari spesialmu:</div>
         <div class="timer">
@@ -62,47 +103,43 @@
         </div>
       </div>
       <div id="special-day-msg" class="special-day-msg hidden">
-        ✨ HARI INI HARI SPESIALMU! SELAMAT ULANG TAHUN KAK KAZHE! 🧁✨
+        ✨ HARI INI HARI SPESIALMU! SELAMAT ULANG TAHUN Mas Ran! 🧁✨
       </div>
     </header>
 
-    <!-- Opening Message -->
     <section class="opening-message">
       <div class="container">
         <div class="opening-card reveal-on-scroll">
 
-          <div class="opening-tag">Untuk Kak Khaze 🤍</div>
+          <div class="opening-tag">Untuk Mas Ran 🤍</div>
 
-          <h2>Sepucuk Surat Kecil Untukmu</h2>
+          <h2>halloo, selamat bertambah usia mas zimyann!  </h2>
 
           <div class="opening-text">
 
             <p>
-              selamat hari lahir kak khaze, pertama - tama aku mau berterimakasih
-              karena kakak udah lahir didunia & tumbuh menjadi sosok yang baik dan
-              penuh kasih sayang, buat semua yang udah kakak lewati & usahakan
-              semasa usia kakak itu hebat banget karena bisa dititik ini, karena
-              bisa terus berkembang sampai saat ini. aku mungkin ngga begitu tau
-              perjalanan kakak selama ini gimana tapi aku yakin kakak pasti selalu
-              lakuin yang terbaik & yang terhebat, aku percaya banget!!
+              hari ini adalah hari yang sangat spesial bagi kamu dan bagi aku juga tentu-nya, 
+              karena hari ini dunia merayakan kehadiran seseorang yang berharga dalam hidup aku.
+              seseorang yang telah membawa begitu banyak kebahagiaan, ketenangan,
+              dan cinta yang ga pernah aku bayangkan sebelumnya. aku sangat bersyukur karena dari sekian banyak orang di dunia ini,
+              ku di pertemukan untuk kenal kamu, menyayangi kamu, 
+              dan menjadi bagian dari perjalanan hidup kamu.
             </p>
 
             <p>
-              kak, dihari kamu lahir ini aku mau jadi seseorang yang turut bahagia
-              atas pencapaian & perjalanan kamu sampai sekarang. aku senang bisa
-              kenal kakak dan ngobrol banyak hal sama kakak, aku senang ternyata
-              bulan juni bisa jadi begitu spesialnya karena kehadiran kakak.
+              di hari ulang tahun kamu sayang, aku mau bilang terimakasih, 
+              terimakasih karena selalu ada di saat aku senang maupun di titik terendah aku. 
+              terimakasih karena selalu berusaha memahami aku, menerima segala kekurangan aku, 
+              dan tetap memilih untuk bertahan di sisi aku. kehadiran kamu ngajarin aku bahwa cinta itu bukan hanya tentang kata-kata manis, 
+              tetapi juga tentang kesabaran, pengertian, dan ketulusan.
             </p>
 
             <p>
-              harapan & doa aku untuk kakak diusia ini, semoga kakak selalu
-              dikelilingi hal baik yaa? semoga kakak dimudahkan atas segala hal,
-              semoga keinginan kakak selalu tercapai, semoga kakak disayangi oleh
-              orang yang kakak sayangi juga, semoga kakak bisa lakuin hal apapun
-              yang bikin kakak bahagia, semoga hari - hari kakak dipenuhi rasa
-              cukup, rasa bahagia, rasa bangga, rasa dihargai, rasa didengar, dan
-              segala rasa - rasa indah lainnya, bahagia selalu kak aku juga turut
-              senang dengan kebahagiaan kakak apapun itu.
+              sayang, semoga di usia yang baru ini, setiap langkah yang kamu ambil selalu di penuhi kebahagiaan dan keberkahan. 
+              semoga semua impian yang kamu simpan dalam hati perlahan jadi kenyataan. semoga kesehatan, kesuksesan, 
+              dan hal-hal baik selalu menyertai kamu di mana pun dan kapan pun kamu berada. aku harap setiap hari yang kamu jalanin di penuhi senyuman, 
+              karena kamu pantas mendapatkan semua kebahagiaan yang ada di dunia ini.
+
             </p>
 
           </div>
@@ -111,75 +148,48 @@
       </div>
     </section>
 
-    <!-- Polaroid Photo Gallery & Birthday Card 1 -->
     <section class="gallery-section">
       <div class="container">
         <h2 class="section-title">Kenangan & Doa Terindah</h2>
         <div class="photo-grid">
 
-          <!-- Polaroid 1 - The Big Card containing Text 1 -->
-          <!-- <div class="polaroid-card large-card reveal-on-scroll">
-            <div class="polaroid-img-wrapper">
-              <img src="assets/photo1.jpg" alt="Papa Cimi" class="polaroid-img">
-              <span class="tag-badge">Papa Cimi 🐱</span>
-            </div>
-            <div class="polaroid-content">
-              <h3>HAPPY BIRTHDAYY YAAA PAPA CIMII 🎂</h3>
-              <p class="wishes-text">
-                Nggak kerasa umur nambah lagi aja, wkwk. Semoga di umur yang sekarang, hidup kamu makin banyak hal
-                baiknya. Semoga apa yang lagi kamu kejar bisa berjalan sesuai harapan, yang lagi bikin capek pelan-pelan
-                menemukan jalan keluarnya, dan yang masih jadi rencana bisa segera jadi kenyataan. Terima kasih sudah
-                jadi pribadi yang selalu keren dengan caramu sendiri. Tetap jadi orang yang rendah hati dan membawa
-                energi positif untuk orang-orang di sekitarmu. Semoga semakin dewasa, semakin bijaksana dalam mengambil
-                keputusan, dan semakin banyak hal membanggakan yang bisa kamu raih. <br><strong>HAPPY BIRTHDAY DIKAA
-                  🧁</strong>
-              </p>
-            </div>
-          </div> -->
-
-          <!-- Polaroid 2 -->
           <div class="polaroid-card reveal-on-scroll">
             <div class="polaroid-img-wrapper">
-              <img src="assets/first-chat.jpg" alt="Cozy Cafe Moments" class="polaroid-img">
-              <span class="tag-badge">First Chat☕</span>
+              <img src="assets/fotopertama.jpg" alt="Cozy Cafe Moments" class="polaroid-img">
+              <span class="tag-badge">First photo kita☕</span>
             </div>
             <div class="polaroid-content">
-              <p class="polaroid-caption">our first chat: aku beraniin say hi ke kakak di anon kalau kata olivia sih ini
-                feminine intuition hehehe</p>
+              <p class="polaroid-caption">our first take a photo: foto pertama kita; di rumah ara, after aku pulang pkl kita foto buat pertama kali nyaa, gemecc :3</p>
             </div>
           </div>
 
-          <!-- Polaroid 3 -->
           <div class="polaroid-card reveal-on-scroll">
             <div class="polaroid-img-wrapper">
-              <img src="assets/kegiatan-fav.jpg" alt="Path of Hopes" class="polaroid-img">
-              <span class="tag-badge">Kegiatan Fav 🌅</span>
+              <img src="assets/fotoboxke1.jpg" alt="Path of Hopes" class="polaroid-img">
+              <span class="tag-badge">Foto box pertama kita 🌅</span>
             </div>
             <div class="polaroid-content">
-              <p class="polaroid-caption">kegiatan yang paling aku suka banreng kak kazhe : mabar plato (soalnya kakak
-                jadi ekspresif & kita bisa random talk tipis")</p>
+              <p class="polaroid-caption">"lihat deh foto box pertama kita lucu banget kan.."</p>
             </div>
           </div>
 
-          <!-- Polaroid 4 -->
           <div class="polaroid-card reveal-on-scroll">
             <div class="polaroid-img-wrapper">
-              <img src="assets/lagu-memories.jpg" alt="Sweet Cupcake" class="polaroid-img">
-              <span class="tag-badge">Song 🧁</span>
+              <img src="assets/bungapertama.jpg" alt="Sweet Cupcake" class="polaroid-img">
+              <span class="tag-badge">first flower</span>
             </div>
             <div class="polaroid-content">
-              <p class="polaroid-caption">lagu yang bikin inget kak khaze</p>
+              <p class="polaroid-caption">seneng banget ini bunga pertama kitaa</p>
             </div>
           </div>
 
-          <!-- Polaroid 5 -->
           <div class="polaroid-card reveal-on-scroll">
             <div class="polaroid-img-wrapper">
-              <img src="assets/moment-fav.jpg" alt="Sweet Cupcake" class="polaroid-img">
-              <span class="tag-badge">Moment fav 🧁</span>
+              <img src="assets/ke1thn.jpg" alt="Sweet Cupcake" class="polaroid-img">
+              <span class="tag-badge">1 thn aniv 🧁</span>
             </div>
             <div class="polaroid-content">
-              <p class="polaroid-caption">moment" fav: aku suka pas kak khaze narsis aslinya wkwkwk lucu, terus suka
+              <p class="polaroid-caption">moment" fav: aku suka pas Mas Ran narsis aslinya wkwkwk lucu, terus suka
                 respon kakak kalau aku katain wibu, kakak jarang respon jokes & gombalan ak sih tapi gatau kenapa tetap
                 lucu aja deh meskipun diam 👍👍</p>
             </div>
@@ -189,7 +199,6 @@
       </div>
     </section>
 
-    <!-- Interactive Letter Section (Envelope) containing Text 2 -->
     <section class="letter-section">
       <div class="container">
         <h2 class="section-title">Satu Hal Yang Ingin Aku Sampaikan 🤍</h2>
@@ -205,78 +214,35 @@
             <div class="letter" id="letter">
               <button id="close-letter-btn" class="close-letter-btn" aria-label="Tutup Surat">&times;</button>
               <div class="letter-inner">
-                <div class="letter-header">Untuk Kak Khaze</div>
+                <div class="letter-header">Untuk Mas Ran</div>
                 <div class="letter-body">
 
-                  <p>
-                    Halo, surat ini spesial karena isinya adalah segala hal yang pengen banget aku utarain ke kakak,
-                    hehe.
-                  </p>
-
-                  <p>
-                    Aku tau kak, mungkin sekarang memang waktunya belum tepat kalau aku berusaha masuk ke kehidupan
-                    kakak.
-                    Aku paham kalau mungkin kakak masih ingin menikmati momen dan kenangan bersama mantan kakak, dan
-                    belum
-                    ingin terburu-buru menghapus semua itu.
-                  </p>
-
-                  <p>
-                    Tapi kak, aku di sini sama sekali nggak menuntut kakak buat menghapus perasaan atau kenangan
-                    tersebut.
-                    Kakak bebas merasakan apapun yang memang masih ingin kakak rasakan, bebas menyayangi mantan kakak
-                    sebesar apa pun itu. Aku nggak akan pernah jadi penghalang untuk hal tersebut.
-                  </p>
-
-                  <p>
-                    Aku cuma akan berusaha sebisa dan sejauh yang kakak izinkan. Aku berusaha bukan dengan harapan kakak
-                    akan segera melupakan mantan kakak, tapi karena aku ingin kakak tahu kalau aku ada di sini.
-                  </p>
-
-                  <p>
-                    Aku hanya sedang berusaha agar keberadaanku disadari oleh kakak, tanpa menuntut apa pun, tanpa
-                    memaksa
-                    perasaan kakak, dan tanpa mengharapkan balasan tertentu.
-                  </p>
-
-                  <p>
-                    Apapun respon kakak terhadap segala usahaku, aku akan menerimanya. Kalau suatu saat kakak merasa
-                    caraku hadir di sisi kakak terlalu berlebihan, bilang saja. Aku akan menyesuaikan diri dengan cara
-                    yang paling nyaman untuk kakak.
-                  </p>
-
-                  <p>
-                    Kalau menghubungi kakak setiap hari terasa memberatkan, aku akan belajar untuk tetap ada di sisi
-                    kakak
-                    dengan cara yang lain. Dengan cara yang lebih tenang. Dengan cara yang tidak menggebu-gebu.
-                  </p>
-
-                  <p>
-                    Jadi untuk sekarang, cukup jalani kehidupan kakak seperti biasanya.
-                  </p>
-
-                  <p>
-                    Dan kalau suatu hari kakak merasa membutuhkan seseorang untuk ada di sisi kakak, atau ketika kakak
-                    sudah selesai dengan segala hal yang mungkin sedang kakak coba selesaikan, kakak boleh datang ke
-                    aku.
-                  </p>
-
-                  <p>
-                    Aku akan tetap ada di sini.
-                  </p>
-
-                  <p>
-                    Dan aku akan menunggu, selama aku masih mampu.
-                  </p>
+                  <p>Halo, surat ini spesial karena isinya adalah segala hal yang pengen banget aku utarain ke kakak, hehe.</p>
+                  <p>aku tau hidup ga selalu mudah, ada kala nya lelah, masalah, </p>
+                  <p>atau saat-saat rasanya ingin menyerah. tapi aku pengen kamu</p>
+                  <p>tau bahwa kamu ga harus hadapi itu sendirian. aku akan selalu berusaha ada untuk kamu, mendengarkan cerita kamu,</p>
+                  <p>kuatin kamu saat kamu rapuh, dan nemenin kamu buat lewatin setiap proses yang ada.</p>
+                  <p>karena bagi aku, melihat kamu bahagia adalah salah satu kebahagiaan terbesar di hidup aku.</p>
+                  <p>bertambahnya usia kamu bikin aku sadar bahwa waktu itu berjalan dengan cepat, </p>
+                  <p>jadi aku ingin manfaatin setiap kesempatan yang kita miliki buat menciptakan lebih banyak kenangan indah bersama</p>
+                  <p>aku ingin selalu lihat kamu tersenyum, mendengar kamu tertawa, merayakan setiap pencapaian kamu, dan mendampingi kamu. </p>
+                  <p> aku ingin menjadi orang yang selalu bisa kamu andalkan, tiap waktu nya.</p>
+                  <p>terimakasih sudah menjadi rumah ternyaman buat aku, terimakasih sudah menjadi alasan mengapa hari-hari aku jadi lebih indah.</p>
 
                   <p class="letter-closing">
-                    Terima kasih sudah hadir di hidup banyak orang dengan versi terbaik dirimu.
-                    Dan terima kasih karena tanpa sadar, kamu juga berhasil membuat bulan Juni
-                    terasa lebih spesial untukku.
+                    sekali lagi, selamat ulang tahun, sayang kuu. semoga tahun ini menjadi salah satu tahun terbaik dalam hidup kamu. 
+                      semoga segala doa yang baik menemukan jalan menuju diri kamu, dan semoga cinta yang kita miliki hari ini akan terus tumbuh semakin kuat, semakin dewasa,
+                     dan tetap bertahan dalam segela keadaan.
+                     aku mencintai kamu lebih dari yang bisa dijelaskan oleh kata-kata..
+                     hari ini, besok, dan selama aku masih di beri kesempatan untuk mencintai kamu. 
+                     it's crazy, but this true..
+                      there's nothing i won't do
+                      i'd risk it all, for you..
                   </p>
 
                 </div>
-                <div class="letter-footer">With Love, Shiena🤍</div>
+                <div class="letter-footer">selamat ulang tahun, rumah ku.
+                  With Love, your gf🤍</div>
               </div>
             </div>
           </div>
@@ -285,15 +251,12 @@
       </div>
     </section>
 
-    <!-- Footer -->
     <footer>
-      <!-- <p>Dibuat dengan penuh rasa syukur & kopi hangat ☕</p> -->
-      <p class="copyright">&copy; 2026 Ulang Tahun Kak Kazhe. All Rights Reserved.</p>
+      <p class="copyright">&copy; 2026 Ulang Tahun Mas ran. All Rights Reserved.</p>
     </footer>
 
   </main>
 
-  <!-- Script link -->
   <script src="script.js"></script>
 </body>
 
